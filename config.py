@@ -1,24 +1,7 @@
-# Give the folder where you get your downloads from
-# (Go to Chrome -> Downloads -> Press on the 3 dots on the top right -> Open Downloads folder):
-
-# Give a destination folder for storing your subject files (Open terminal at the folder you want for storing your files and write pwd, copy paste the directory onto here): 
-
-# Do you want the program to move the files from the given Download directory to the Destination folder and delete the files from the given original Download Directory? (yes/no)
-# yes - shutil.move()
-# no - shutil.copy()
-
-# Give subject and link separated by '|' followed by a new line. When finished write 'done'. Example: 
-# Functional Programming | https://canvas.elte.hu/courses/40758
-# Imperative Programming | https://canvas.elte.hu/courses/40454
-# done
-
-# Created folders in the f'{directory}' with the corresponding subject names.
-
 import sys
 import configparser
 import shutil
 
-#print("Give the folder where you get your downloads from\nGo to Chrome -> Downloads -> Press on the 3 dots on the top right -> Open Downloads folder):")
 def case_sensitive_optionxform(option):
     return option
 
