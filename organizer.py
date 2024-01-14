@@ -89,7 +89,7 @@ def move_files(desired_path, list, config, logger):
 def organizer_main():
     config = configparser.ConfigParser(allow_no_value=True)
     config.optionxform = lambda option : option
-    config.read("/Users/chuluun/Documents/Pythonh/macos_interceptor&organizer/config.ini")
+    config.read("config.ini")
     dir_path = config["DIRECTORIES"]["Downloads"]
     desired_path = config["DIRECTORIES"]["Destination"]
  
