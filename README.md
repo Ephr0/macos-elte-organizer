@@ -3,7 +3,9 @@
 This is my own personal study folder organizer for macos. 
 Currently to my best of knowledge, only 2026 ELTE student future graduates from Group 4 in their first semester can also use this.
 
-To setup the organizer, we need to create a config.ini file with our own data. You may use the config.py program to setup your data, or you can directly type into the config.ini file.
+<p>To setup the organizer, we need to create a config.ini file with our own data. You may use the config.py program to setup your data, or you can directly type into the example config.ini file. Also, to copy and moves the files around you need permissions. To get these permissions:<br>
+SETTINGS -> PRIVACY AND SECURITY -> FULL DISK ACCESS -> enable for TERMINAL and VISUAL STUDIO CODE
+</p>
 
 Example data:
 
@@ -12,14 +14,15 @@ Destination = /Users/chuluun/Desktop/testing<br>
 Downloads = /Users/chuluun/Downloads</p>
 
 <p>[SETTINGS]<br>
-Move or Copy = move</p>
+Move or Copy = copy</p>
 
 <p>[LINKS]<br>
 Basic Math = https://canvas.elte.hu/courses/36812 |https://ikelte.sharepoint.com/sites/BasicMathematicsGroup4 |
 </p>
 <p>
-The data will have 3 sections. The required directory pathways, setting for either moving the files or copying the files, and the links for our data. Make sure to write the data properly.</p>
-When inputting the links, make sure each link is followed by a space, and '|'. Each subject can have multiple links.
+The data will have 3 sections. The required directory pathways [DIRECTORIES], setting for either moving the files or copying the files [SETTINGS], and the links for our data [LINKS]. When writing the links, make sure each link is followed by a space, and '|'. Each subject can have multiple links.<br>
+I recommend creating a destination folder which you won't use in the future and use the setting copy. I haven't tested for enough bugs so please test before actually using the program.
+</p>
 
 <p>
 Each course for teams and canvas has a certain id after the given link above. For example:
