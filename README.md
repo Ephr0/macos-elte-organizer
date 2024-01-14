@@ -21,7 +21,7 @@ Basic Math = https://canvas.elte.hu/courses/36812 |https://ikelte.sharepoint.com
 </p>
 <p>
 The data will have 3 sections. The required directory pathways [DIRECTORIES], setting for either moving the files or copying the files [SETTINGS], and the links for our data [LINKS]. When writing the links, make sure each link is followed by a space, and '|'. Each subject can have multiple links.<br>
-<span style="background-color: #FFFF00">I recommend creating a destination folder which you won't use in the future and use the setting copy. I haven't tested for enough bugs so please test before actually using the program.</span>
+I recommend creating a destination folder which you won't use in the future and use the setting copy. I haven't tested for enough bugs so please test before actually using the program.
 </p>
 
 <p>
