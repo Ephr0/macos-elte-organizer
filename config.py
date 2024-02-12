@@ -44,12 +44,12 @@ def configurator(download, destination, move_or_copy):
         
         config.set(section, subject, updated_value)
             
-    with open('config.ini', 'w') as configfile:
+    with open('current_config.ini', 'w') as configfile:
         config.write(configfile)
 
 def config_main():
     print("Give the folder directory where you get your downloads from (or skip if you already have the correct directory)")
-    print("Go to Chrome -> Downloads -> Press on the 3 dots on the top right -> Open Downloads folder -> Get directory:")
+    print("Go to Chrome -> 3 dots on top right -> Downloads -> Press on the 3 dots on the top right of the webpage you opened -> Open Downloads folder -> Get directory:")
     download = input()
     print("Give a destination folder for storing your subject files (Open terminal at the folder you want for storing your files and write pwd, copy paste the directory onto here) or skip:")
     destination = input()
