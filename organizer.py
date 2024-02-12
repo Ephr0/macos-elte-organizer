@@ -35,6 +35,8 @@ def link_returner(file_path, value):
 
 # Creates the Folders for the Subjects
 def create_folder(desired_path, config, logger=None):
+    if not os.path.exists(desired_path):
+        os.mkdir(desired_path)
     if logger is None:
         logger = logging.getLogger(__name__)
     misc = os.path.join(desired_path, 'Miscellaneous')
