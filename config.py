@@ -8,7 +8,7 @@ def case_sensitive_optionxform(option):
 def configurator(download, destination, move_or_copy):
     config = configparser.ConfigParser(allow_no_value=True)
     config.optionxform = case_sensitive_optionxform
-    config.read("config.ini")
+    config.read("current_config.ini")
     
     if not config.has_section("DIRECTORIES"):
         config.add_section("DIRECTORIES")
