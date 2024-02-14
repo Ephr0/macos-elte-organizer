@@ -14,7 +14,7 @@ def append_list(dir_path):
         file_path = os.path.join(dir_path, file_name)
         try:
             values = plistlib.loads(xattr.getxattr(file_path, 'com.apple.metadata:kMDItemWhereFroms'))
-            #print(value1)
+            #print(values, file_name, "\n")
             result = (link_returner(file_path, values))  
             if result is not None:
                 elte_list.append(result)
@@ -26,7 +26,7 @@ def link_checker(value):
     return 'https://canvas.elte.hu' in value or 'https://ikelte.sharepoint.com/sites' in value or 'https://tms.inf.elte.hu' in value 
 
 def link_returner(file_path, value):
-    if ('https://tms.inf.elte.hu' in value[0]):
+    if ('https://tms.inf.elte.hu' in value[0] or 'https://ikelte.sharepoint.com/sites' in value[0]): #teams links could be in first sublist, second sublist, or for both sublists
         return [file_path, value[0]]
     elif ('https://canvas.elte.hu' in value[1] or 'https://ikelte.sharepoint.com/sites' in value[1]):
         return [file_path, value[1]]
@@ -96,6 +96,7 @@ def organizer_main():
     desired_path = config["DIRECTORIES"]["Destination"]
  
     elte_list = append_list(dir_path)
+    #print(elte_list)
     create_folder(desired_path, config["LINKS"])
     move_files(desired_path, elte_list, config, logger)
 
