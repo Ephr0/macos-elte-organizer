@@ -20,19 +20,48 @@ class DownloadHandler(FileSystemEventHandler):
             return
 
         #print(f"script {name}")
-        time.sleep(1)
+        #time.sleep(1)
 
         file_path = event.src_path
-        if os.path.exists(file_path):
-            try:
-                value = plistlib.loads(xattr.getxattr(file_path, 'com.apple.metadata:kMDItemWhereFroms'))
-            except (IndexError, plistlib.InvalidFileException, UnicodeDecodeError):
-                return 
-
+        
+        if not os.path.exists(file_path):
+            return 
+        
+        if file_path.endswith(".crdownload"): #if theres a .crdownload file it means the download hasn't finished and chrome is still sending data to the file
+            while os.path.exists(file_path):
+                print(f"FILE PENDING: {file_path}\n")
+                time.sleep(1)
+            return None
+        
+        value = self.error_handling(file_path)
+        if value:
             result = link_returner(file_path, value)
             dest = self.config["DIRECTORIES"]["Destination"]
             if result is not None:
                 move_files(dest, [result], self.config, logger)
+            
+    
+    def error_handling(self, file_path):
+        try:
+            attr = xattr.getxattr(file_path, 'com.apple.metadata:kMDItemWhereFroms')
+            value = plistlib.loads(attr)
+            return value
+        except plistlib.InvalidFileException as e:
+            logger.error(f"Plist data invalid, error: '{e}'")
+            return None
+        except UnicodeDecodeError as e: 
+            logger.error(f"Unicode decoding error occured '{e}'")
+            return None
+        except OSError as e:
+            if e.errno == 93:
+                logger.info(f"Skipped hidden file: '{file_path}'") #Most likely a hidden file, but not sure yet
+            else:
+                logger.error(f"OS error occured '{e}'")
+            return None
+        except Exception as e:
+            logger.error(f"Error not accounted for yet (please report this error!): '{e}'")
+            return None
+        
 
 def start_watchdog(config):
     dir_path = config["DIRECTORIES"]["Downloads"]
