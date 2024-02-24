@@ -8,7 +8,7 @@ def case_sensitive_optionxform(option):
 def configurator(download, destination, move_or_copy):
     config = configparser.ConfigParser(allow_no_value=True)
     config.optionxform = case_sensitive_optionxform
-    config.read("current_config.ini")
+    config.read("config.ini")
     
     if not config.has_section("DIRECTORIES"):
         config.add_section("DIRECTORIES")
@@ -23,11 +23,11 @@ def configurator(download, destination, move_or_copy):
         config["SETTINGS"]["Move or Copy"] = move_or_copy
     
     while True:
-        line = input().split("|")
+        line = input().split("|:|")
         if line == ["done"]:
             break
         if len(line) != 2:
-            print("ERROR: input should have subject and link\nFunctional Programming | https://canvas.elte.hu/courses/40758 ")
+            print("ERROR: input should have subject and link\nFunctional Programming |:| https://canvas.elte.hu/courses/40758 ")
             break
         subject, link = line[0].strip(), line[1].strip()
         if "canvas.elte.hu" or "ikelte.sharepoint.com" or "tms.inf.elte.hu" in link:
@@ -40,11 +40,11 @@ def configurator(download, destination, move_or_copy):
             
         current_value = config.get(section, subject, fallback="")
         
-        updated_value = current_value + link + " | "
+        updated_value = current_value + link + " |:| "
         
         config.set(section, subject, updated_value)
             
-    with open('current_config.ini', 'w') as configfile:
+    with open('config.ini', 'w') as configfile:
         config.write(configfile)
 
 def config_main():
@@ -62,7 +62,7 @@ def config_main():
     elif yn == "skip":
         move_or_copy = "skip"
     
-    print("Give subject and link separated by '|' followed by a new line. When finished write 'done'. Example:\nFunctional Programming | https://canvas.elte.hu/courses/40758\nImperative Programming | https://canvas.elte.hu/courses/40454\ndone")
+    print("Give subject and link separated by '|:|' followed by a new line. When finished write 'done'. Example:\nFunctional Programming |:| https://canvas.elte.hu/courses/40758\nImperative Programming |:| https://canvas.elte.hu/courses/40454\ndone")
     configurator(download, destination, move_or_copy)
         
 

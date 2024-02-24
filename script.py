@@ -82,7 +82,7 @@ if __name__ == "__main__":
     config = configparser.ConfigParser(allow_no_value=True)
     config.optionxform = lambda option: option
     #
-    config.read("current_config.ini")
+    config.read("config.ini")
     logging.basicConfig(filename='script.log', encoding='utf-8', level=logging.INFO, format='%(asctime)s %(message)s')
     logging.getLogger('watchdog').setLevel(logging.WARNING)
     logger = logging.getLogger('script.log')

@@ -22,6 +22,7 @@ def append_list(dir_path):
             pass
             #print(f"This {file_name} does not work\n")
     return elte_list
+
 def link_checker(value):
     return 'https://canvas.elte.hu' in value or 'https://ikelte.sharepoint.com/sites' in value or 'https://tms.inf.elte.hu' in value 
 
@@ -76,7 +77,7 @@ def move_files(desired_path, list, config, logger):
     for file_path, link in list:
         matched = False
         for key, values in file_links:
-            for value in [url.strip() for url in values.split("|") if url.strip()]:
+            for value in [url.strip() for url in values.split("|:|") if url.strip()]:
                 if value in link:
                     #print(f"Moving {links} to {desired_path} because it matched with {values}\n")
                     destination = os.path.join(desired_path, key)
@@ -91,7 +92,7 @@ def move_files(desired_path, list, config, logger):
 def organizer_main():
     config = configparser.ConfigParser(allow_no_value=True)
     config.optionxform = lambda option : option
-    config.read("current_config.ini")
+    config.read("config.ini")
     dir_path = config["DIRECTORIES"]["Downloads"]
     desired_path = config["DIRECTORIES"]["Destination"]
  
