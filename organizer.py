@@ -66,8 +66,13 @@ def move_copy_error(file_path, destination, M_C, logger=None):
             #print('moved -------')
         else:
             logger.error("ERROR: fix Move or Copy section in 'config.ini'")
-    except:
-        logger.error(f"Error occurred while {action} '{file_path}' to '{destination}'")
+    except shutil.Error as e:
+        if "already exists" in str(e):
+            logger.info(f"The file {file_path} already exists in the destination")
+        else:
+            logger.error(e)
+    except Exception as e:
+        logger.error(f"ERROR: '{e}' occurred while {action} '{file_path}' to '{destination}'")
         #print('error but shuold be logged')
 
             

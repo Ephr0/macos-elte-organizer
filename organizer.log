@@ -90,3 +90,7 @@
 2024-02-24 19:45:15,890 '/Users/chuluun/Downloads/dm1_Problem set 1_Sets_2024 Spring.pdf' was copied to '/Users/chuluun/Desktop/sem2/OPP Le.'
 2024-02-24 19:46:40,733 Error occurred while moving '/Users/chuluun/Downloads/dm1_Problem set 1_Sets_2024 Spring.pdf' to '/Users/chuluun/Desktop/sem2/Discrete Mathematics Le.'
 2024-02-24 19:47:18,788 '/Users/chuluun/Downloads/dm1_Problem set 1_Sets_2024 Spring.pdf' was moved to '/Users/chuluun/Desktop/sem2/Discrete Mathematics Le.'
+2024-02-24 19:53:39,877 '/Users/chuluun/Downloads/Dimat1_Logic and Sets_Spring 2024.pdf' was moved to '/Users/chuluun/Desktop/sem2/Discrete Mathematics Le.'
+2024-02-24 19:54:27,303 ERROR: 'Destination path '/Users/chuluun/Desktop/sem2/Discrete Mathematics Le./Dimat1_Logic and Sets_Spring 2024.pdf' already exists' occurred while moving '/Users/chuluun/Downloads/Dimat1_Logic and Sets_Spring 2024.pdf' to '/Users/chuluun/Desktop/sem2/Discrete Mathematics Le.'
+2024-02-24 20:01:17,561 The file you are trying to move already exists in the destination
+2024-02-24 20:01:53,181 The file /Users/chuluun/Downloads/Dimat1_Logic and Sets_Spring 2024.pdf already exists in the destination
